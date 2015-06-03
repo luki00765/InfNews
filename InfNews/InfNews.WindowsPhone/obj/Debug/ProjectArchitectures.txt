@@ -1,1 +1,1 @@
-C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.WindowsPhone\InfNews.WindowsPhone.csproj;neutral
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.WindowsPhone\InfNews.WindowsPhone.csproj;neutral

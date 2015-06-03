@@ -32,6 +32,7 @@ namespace InfNews
 	public sealed partial class MainPage : Page
 	{
 		List<PurePcData> list_PurePc = new List<PurePcData>();
+		List<PcLabData> list_PcLab = new List<PcLabData>();
 		public MainPage()
 		{
 			this.InitializeComponent();
@@ -41,6 +42,7 @@ namespace InfNews
 		private void MainPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
 			ParsingPurePc("http://www.purepc.pl");
+			ParsingPcLab("http://www.pclab.pl");
 		}
 
 		/// <summary>
@@ -100,9 +102,24 @@ namespace InfNews
 			}
 		}
 
-		private void TglButtonPurePc_OnClick(object sender, RoutedEventArgs e)
+		private void TglButton_OnClick(object sender, RoutedEventArgs e)
 		{
+			var btn = sender as ToggleButton;
 
+			foreach (FrameworkElement item in ((Panel)btn.Parent).Children)
+			{
+				if (item is ToggleButton)
+				{
+					if (btn.Name != item.Name)
+					{
+						item.IsTapEnabled = !item.IsTapEnabled;
+						if (item.IsTapEnabled == false)
+							item.Visibility = Visibility.Collapsed;
+						else
+							item.Visibility = Visibility.Visible;
+					}
+				}
+			}
 		}
 
 		private async void ListBox_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
@@ -151,6 +168,53 @@ namespace InfNews
 				txtBlockContent.Text = list_PurePc[index].Content;
 			}
 			
+		}
+
+		private async void ParsingPcLab(string url)
+		{
+			try
+			{
+				string url_string;
+				using (var client = new HttpClient())
+				{
+					url_string = await client.GetStringAsync(new Uri(url));
+				}
+
+				HtmlDocument htmlDocument = new HtmlDocument();
+				htmlDocument.LoadHtml(url_string);
+
+				HtmlNode node = htmlDocument.DocumentNode.Descendants("div").FirstOrDefault(o => o.GetAttributeValue("class", null) == "previews");
+				HtmlNodeCollection nodeCollection = node.ChildNodes;
+
+				foreach (HtmlNode itemNode in nodeCollection)
+				{
+					var title1 = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("class", null) == "preview");
+					var titleAndLink = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("href", null) != null);
+					if (titleAndLink != null)
+					{
+						var link = titleAndLink.Attributes["href"].Value;
+						var title = titleAndLink.InnerText;
+					}
+					/*if (titleAndImage != null)
+					{
+						var attributes = titleAndImage.Descendants("img").FirstOrDefault(x => x.GetAttributeValue("alt", "") != null);
+						var title = attributes.Attributes["alt"].Value;
+						var image = attributes.Attributes["src"].Value;
+						//link do szczegółowych informacji, które zostaną pobrane po dwukrotnym kliknięciu na item z listBoxa
+						var attributeLink = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("href", "") != null);
+						var link = url + attributeLink.Attributes["href"].Value;
+
+						list_PurePc.Add(new PurePcData(title, new BitmapImage(new Uri(image)), link));
+					}*/
+				}
+
+				//listBox.ItemsSource = list_PurePc;
+			}
+			catch (Exception e)
+			{
+				MessageDialog msgDialog = new MessageDialog(e.Message);
+				msgDialog.ShowAsync();
+			}
 		}
 	}
 }

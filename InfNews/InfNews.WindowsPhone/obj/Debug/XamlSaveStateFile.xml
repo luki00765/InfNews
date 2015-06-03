@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
     <LocalAssembly PathName="c:\users\lukii\documents\visual studio 2013\projects\infnews\infnews\infnews.windowsphone\obj\debug\intermediatexaml\infnews.windowsphone.exe" HashGuid="98ed0506-e8a4-ae89-9677-4b1e5dbe06ee" />
-    <ReferenceAssembly PathName="c:\users\lukii\documents\visual studio 2013\projects\infnews\infnews\infnews.windowsphone\bin\debug\htmlagilitypack.dll" HashGuid="f2c9a4ce-31d6-6a71-5c53-58cd8e71df15" />
+    <ReferenceAssembly PathName="c:\users\lukii\documents\github\infnews\infnews\infnews.windowsphone\bin\debug\htmlagilitypack.dll" HashGuid="f2c9a4ce-31d6-6a71-5c53-58cd8e71df15" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

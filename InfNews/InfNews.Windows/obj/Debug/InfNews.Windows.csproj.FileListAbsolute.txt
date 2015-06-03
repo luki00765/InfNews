@@ -32,3 +32,37 @@ c:\users\lukii\documents\visual studio 2013\Projects\InfNews\InfNews\InfNews.Win
 c:\users\lukii\documents\visual studio 2013\Projects\InfNews\InfNews\InfNews.Windows\obj\Debug\ProjectArchitectures.txt
 c:\users\lukii\documents\visual studio 2013\Projects\InfNews\InfNews\InfNews.Windows\obj\Debug\InfNews.Windows.csproj.GenerateResource.Cache
 C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\obj\Debug\InfNews.Windows.csprojResolveAssemblyReference.cache
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\App.xbf
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\MainPage.xbf
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.xr.xml
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.exe
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.pdb
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\resources.pri
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\AppxManifest.xml
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.build.appxrecipe
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\InfNews.Windows.csprojResolveAssemblyReference.cache
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\App.g.i.cs
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\App.g.cs
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\MainPage.g.i.cs
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\MainPage.g.cs
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\App.xaml
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\App.xbf
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\XamlSaveStateFile.xml
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\MainPage.xaml
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\MainPage.xbf
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\InfNews.Windows.exe
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\InfNews.Windows.pdb
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\InfNews.Windows.csproj.GenerateResource.Cache
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\priconfig.xml
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\priconfig.xml.intermediate
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\layout.resfiles
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\layout.resfiles.intermediate
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\resources.resfiles
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\resources.resfiles.intermediate
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\pri.resfiles
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\pri.resfiles.intermediate
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\qualifiers.txt
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\ProjectArchitectures.txt

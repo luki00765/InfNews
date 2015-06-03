@@ -13,17 +13,27 @@
         <infNews:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
 </Page.Resources>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/Background.jpg"/>
+        </Grid.Background>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         
+        <!-- ToggleButtony do różnych stron -->
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <ToggleButton x:Name="TglButtonPurePc"  Content="PurePc" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
+            <ToggleButton x:Name="TglButton" Content="tgltest" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
+            <ToggleButton x:Name="TglButtonq" Content="tgltest" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
+        </StackPanel>
+
         <!-- PurePC -->
-        <ToggleButton x:Name="TglButtonPurePc" Grid.Column="0" Grid.Row="0" Content="PurePc" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButtonPurePc_OnClick"/>
         <ListBox x:Name="listBox" Grid.Column="0" Grid.Row="1" Background="WhiteSmoke" Visibility="{Binding ElementName=TglButtonPurePc, Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}}" DoubleTapped="ListBox_OnDoubleTapped">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">

@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PcLabData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PurePcData.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -26,5 +27,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Images\Background.jpg" />
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>1fe184b9-8ab4-4bf1-a5d5-bd8479ba9dde</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\obj\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>3C6291C4E6FAB3FCF6341FE07D7B67DF0E72DC9F39A0D41D850D78728984DF6F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>1fe184b9-8ab4-4bf1-a5d5-bd8479ba9dde_1.0.0.0_neutral__bb88pey852rhr</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>1fe184b9-8ab4-4bf1-a5d5-bd8479ba9dde_bb88pey852rhr!App</RegisteredUserModeAppID>
@@ -17,56 +17,60 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-02T22:40:34.369</Modified>
+      <Modified>2015-06-03T16:43:38.726</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.exe">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.exe">
       <PackagePath>InfNews.Windows.exe</PackagePath>
-      <Modified>2015-06-03T09:04:07.272</Modified>
+      <Modified>2015-06-03T17:12:55.052</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\HtmlAgilityPack.dll">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
       <Modified>2012-08-06T19:31:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-14T03:19:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-14T03:19:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-14T03:19:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-14T03:19:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Shared\Images\Background.jpg">
+      <PackagePath>Images\Background.jpg</PackagePath>
+      <Modified>2015-06-03T14:43:34.738</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
       <Modified>2015-06-02T22:40:24.473</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-06-03T09:04:05.625</Modified>
+      <Modified>2015-06-03T16:43:37.239</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.xr.xml">
       <PackagePath>InfNews.Windows.xr.xml</PackagePath>
-      <Modified>2015-06-03T09:04:05.608</Modified>
+      <Modified>2015-06-03T16:30:21.086</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Lukii\Documents\Visual Studio 2013\Projects\InfNews\InfNews\InfNews.Windows\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-06-02T22:40:33.445</Modified>
+      <Modified>2015-06-03T16:43:38.524</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
