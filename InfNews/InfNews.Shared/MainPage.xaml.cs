@@ -177,8 +177,15 @@ namespace InfNews
 				string url_string;
 				using (var client = new HttpClient())
 				{
+					/*
+						 * Kodowanie na PcLab to iso-8859-2 którego nie obsługuje Windows Phone 8.1
+						 * Dostępne kodowania w Win Phone to: UTF8 i Unicode; jednakże Aplikacje na Windows 8.1 obsługują te rozszerzenia
+						 * i z racji tego, że jest to aplikacja uniwersalna to zostało ustawione UTF8
+						 * przez co będzie widoczny problem z polskimi znakami w postaci znaków zapytania
+						 */
+
 					//url_string = await client.GetStringAsync(new Uri(url));
-					var response = await client.GetByteArrayAsync(url);
+					var response = await client.GetByteArrayAsync(new Uri(url));
 					//url_string = Encoding.GetEncoding("iso-8859-2").GetString(response, 0, response.Length - 1);
 					url_string = Encoding.UTF8.GetString(response, 0, response.Length - 1);
 				}
@@ -195,7 +202,7 @@ namespace InfNews
 					var titleAndLink = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("href", null) != null);
 					if (titleAndLink != null)
 					{
-						var link = titleAndLink.Attributes["href"].Value;
+						var link = url + titleAndLink.Attributes["href"].Value;
 						var title = titleAndLink.InnerText;
 						if (title.Contains("&#8211;")) title = title.Replace("&#8211;", "-");
 						var image = url + imagelink.Attributes["src"].Value;
@@ -213,9 +220,63 @@ namespace InfNews
 			}
 		}
 
-		private void ListBoxPcLab_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+		private async void ListBoxPcLab_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
 		{
+			var item = sender as ListBox;
+			var index = item.SelectedIndex;
+			string url = list_PcLab[index].Link;
 
+			if (list_PcLab[index].Content == null)
+			{
+				try
+				{
+					string url_string;
+					using (var client = new HttpClient())
+					{
+						/*
+						 * Kodowanie na PcLab to iso-8859-2 którego nie obsługuje Windows Phone 8.1
+						 * Dostępne kodowania w Win Phone to: UTF8 i Unicode; jednakże Aplikacje na Windows 8.1 obsługują te rozszerzenia
+						 * i z racji tego, że jest to aplikacja uniwersalna to zostało ustawione UTF8
+						 * przez co będzie widoczny problem z polskimi znakami w postaci znaków zapytania
+						 */
+
+						//url_string = await client.GetStringAsync(new Uri(url));
+						var response = await client.GetByteArrayAsync(new Uri(url));
+						//url_string = Encoding.GetEncoding("iso-8859-2").GetString(response, 0, response.Length - 1);
+						url_string = Encoding.UTF8.GetString(response, 0, response.Length - 1);
+					}
+
+					HtmlDocument htmlDocument = new HtmlDocument();
+					htmlDocument.LoadHtml(url_string);
+
+					HtmlNode node = htmlDocument.DocumentNode.Descendants("div").FirstOrDefault(o => o.GetAttributeValue("class", null) == "substance");
+					HtmlNode node2 = node.Descendants("div").FirstOrDefault(o => o.GetAttributeValue("class", null) == "data");
+					HtmlNodeCollection nodeCollection = node2.ChildNodes;
+
+					string content = "";
+					foreach (HtmlNode itemNode in nodeCollection)
+					{
+						if (itemNode.Name == "p" || itemNode.Name == "h3")
+						{
+							content += itemNode.InnerText + "\n ";
+							if (content.Contains("&#8211;")) content = content.Replace("&#8211;", "-");
+						}
+					}
+					txtBlockTitlePcLab.Text = list_PcLab[index].Title;
+					list_PcLab[index].Content = content;
+					txtBlockContentPcLab.Text = content;
+				}
+				catch (Exception exception)
+				{
+					MessageDialog msg = new MessageDialog(exception.Message);
+					msg.ShowAsync();
+				}
+			}
+			else
+			{
+				txtBlockTitlePcLab.Text = list_PcLab[index].Title;
+				txtBlockContentPcLab.Text = list_PcLab[index].Content;
+			}
 		}
 	}
 }
