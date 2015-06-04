@@ -26,7 +26,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.exe">
       <PackagePath>InfNews.Windows.exe</PackagePath>
-      <Modified>2015-06-03T17:12:55.052</Modified>
+      <Modified>2015-06-04T12:20:14.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -62,7 +62,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-06-03T16:43:37.239</Modified>
+      <Modified>2015-06-04T11:34:31.709</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.xr.xml">
       <PackagePath>InfNews.Windows.xr.xml</PackagePath>

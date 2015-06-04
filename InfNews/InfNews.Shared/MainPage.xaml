@@ -29,7 +29,7 @@
         <!-- ToggleButtony do różnych stron -->
         <StackPanel Grid.Column="0" Grid.Row="0">
             <ToggleButton x:Name="TglButtonPurePc"  Content="PurePc" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
-            <ToggleButton x:Name="TglButton" Content="tgltest" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
+            <ToggleButton x:Name="TglButtonPcLab" Content="PcLab" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
             <ToggleButton x:Name="TglButtonq" Content="tgltest" Foreground="Red" FontSize="15" FontWeight="Bold" HorizontalAlignment="Stretch" Background="Silver" Click="TglButton_OnClick"/>
         </StackPanel>
 
@@ -75,5 +75,49 @@
             </ScrollViewer>
         </Grid>
         
+        <!-- PcLab -->
+        <ListBox x:Name="listBoxPcLab" Grid.Column="0" Grid.Row="1" Background="WhiteSmoke" Visibility="{Binding ElementName=TglButtonPcLab, Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}}" DoubleTapped="ListBoxPcLab_OnDoubleTapped">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Background" Value="White"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <!-- rozmieszcza itemy -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="1" Text="{Binding Path=Title}" FontWeight="Bold" FontSize="15" TextWrapping="Wrap" Margin="6"/>
+                            <Image Grid.Column="0" Source="{Binding Path=Image}"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Prawa stron, która jest odpowiedzialna za wyświetlanie Contentu i tytułu -->
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <!-- Tytuł -->
+            <Grid Grid.Row="0" Grid.Column="0" Background="WhiteSmoke" Visibility="{Binding ElementName=TglButtonPcLab, Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}}">
+                <TextBlock  x:Name="txtBlockTitlePcLab" FontSize="20" Foreground="Black" FontFamily="Times New Roman" TextWrapping="Wrap" Margin="5" FontWeight="Bold"/>
+            </Grid>
+            <!-- Content -->
+            <ScrollViewer Grid.Row="1" Grid.Column="0" Background="WhiteSmoke" Visibility="{Binding ElementName=TglButtonPcLab, Path=IsChecked, Converter={StaticResource BoolVisibilityConverter}}" >
+                <TextBlock x:Name="txtBlockContentPcLab"  TextWrapping="Wrap" FontSize="15" FontFamily="Times New Roman" Foreground="Black" Margin="5"/>
+            </ScrollViewer>
+        </Grid>
+
+
     </Grid>
 </Page>

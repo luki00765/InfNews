@@ -169,7 +169,7 @@ namespace InfNews
 			}
 			
 		}
-
+		//PcLab
 		private async void ParsingPcLab(string url)
 		{
 			try
@@ -177,7 +177,10 @@ namespace InfNews
 				string url_string;
 				using (var client = new HttpClient())
 				{
-					url_string = await client.GetStringAsync(new Uri(url));
+					//url_string = await client.GetStringAsync(new Uri(url));
+					var response = await client.GetByteArrayAsync(url);
+					//url_string = Encoding.GetEncoding("iso-8859-2").GetString(response, 0, response.Length - 1);
+					url_string = Encoding.UTF8.GetString(response, 0, response.Length - 1);
 				}
 
 				HtmlDocument htmlDocument = new HtmlDocument();
@@ -185,36 +188,34 @@ namespace InfNews
 
 				HtmlNode node = htmlDocument.DocumentNode.Descendants("div").FirstOrDefault(o => o.GetAttributeValue("class", null) == "previews");
 				HtmlNodeCollection nodeCollection = node.ChildNodes;
-
+				
 				foreach (HtmlNode itemNode in nodeCollection)
 				{
-					var title1 = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("class", null) == "preview");
+					var imagelink = itemNode.Descendants("img").FirstOrDefault(x => x.GetAttributeValue("src", null) != null);
 					var titleAndLink = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("href", null) != null);
 					if (titleAndLink != null)
 					{
 						var link = titleAndLink.Attributes["href"].Value;
 						var title = titleAndLink.InnerText;
+						if (title.Contains("&#8211;")) title = title.Replace("&#8211;", "-");
+						var image = url + imagelink.Attributes["src"].Value;
+
+						list_PcLab.Add(new PcLabData(title, new BitmapImage(new Uri(image)), link));
 					}
-					/*if (titleAndImage != null)
-					{
-						var attributes = titleAndImage.Descendants("img").FirstOrDefault(x => x.GetAttributeValue("alt", "") != null);
-						var title = attributes.Attributes["alt"].Value;
-						var image = attributes.Attributes["src"].Value;
-						//link do szczegółowych informacji, które zostaną pobrane po dwukrotnym kliknięciu na item z listBoxa
-						var attributeLink = itemNode.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("href", "") != null);
-						var link = url + attributeLink.Attributes["href"].Value;
-
-						list_PurePc.Add(new PurePcData(title, new BitmapImage(new Uri(image)), link));
-					}*/
 				}
-
-				//listBox.ItemsSource = list_PurePc;
+					// przypisz do listboxa
+				listBoxPcLab.ItemsSource = list_PcLab;
 			}
 			catch (Exception e)
 			{
 				MessageDialog msgDialog = new MessageDialog(e.Message);
 				msgDialog.ShowAsync();
 			}
+		}
+
+		private void ListBoxPcLab_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+		{
+
 		}
 	}
 }
