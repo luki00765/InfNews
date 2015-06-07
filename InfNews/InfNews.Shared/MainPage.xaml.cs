@@ -33,16 +33,27 @@ namespace InfNews
 	{
 		List<PurePcData> list_PurePc = new List<PurePcData>();
 		List<PcLabData> list_PcLab = new List<PcLabData>();
+		List<KomputerSwiatData> list_KomputerSwiat = new List<KomputerSwiatData>();
+
 		public MainPage()
 		{
 			this.InitializeComponent();
 			this.NavigationCacheMode = NavigationCacheMode.Required;
+			TglButtonPurePc.IsEnabled = false;
+			TglButtonPcLab.IsEnabled = false;
+			TglButtonKomputerSwiat.IsEnabled = false;
+			progressRing.IsActive = true;
 		}
 
 		private void MainPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
 			ParsingPurePc("http://www.purepc.pl");
 			ParsingPcLab("http://www.pclab.pl");
+			ParsingKomputerSwiat("http://www.komputerswiat.pl");
+			progressRing.IsActive = false;
+			TglButtonPurePc.IsEnabled = true;
+			TglButtonPcLab.IsEnabled = true;
+			TglButtonKomputerSwiat.IsEnabled = true;
 		}
 
 		/// <summary>
@@ -178,16 +189,17 @@ namespace InfNews
 				using (var client = new HttpClient())
 				{
 					/*
-						 * Kodowanie na PcLab to iso-8859-2 którego nie obsługuje Windows Phone 8.1
-						 * Dostępne kodowania w Win Phone to: UTF8 i Unicode; jednakże Aplikacje na Windows 8.1 obsługują te rozszerzenia
-						 * i z racji tego, że jest to aplikacja uniwersalna to zostało ustawione UTF8
-						 * przez co będzie widoczny problem z polskimi znakami w postaci znaków zapytania
-						 */
-
-					//url_string = await client.GetStringAsync(new Uri(url));
-					var response = await client.GetByteArrayAsync(new Uri(url));
-					//url_string = Encoding.GetEncoding("iso-8859-2").GetString(response, 0, response.Length - 1);
-					url_string = Encoding.UTF8.GetString(response, 0, response.Length - 1);
+					 * Kodowanie na PcLab to iso-8859-2 którego nie obsługuje Windows Phone 8.1, ale obsługuje Windows 8.1
+					 * Dostępne kodowania w Win Phone to: UTF8 i Unicode;
+					 */
+#if WINDOWS_PHONE_APP
+						var response = await client.GetByteArrayAsync(new Uri(url));
+						//url_string = Encoding.GetEncoding("iso-8859-2").GetString(response, 0, response.Length - 1);
+						url_string = Encoding.UTF8.GetString(response, 0, response.Length - 1);
+#endif
+#if WINDOWS_APP
+					url_string = await client.GetStringAsync(new Uri(url));
+#endif
 				}
 
 				HtmlDocument htmlDocument = new HtmlDocument();
@@ -234,16 +246,17 @@ namespace InfNews
 					using (var client = new HttpClient())
 					{
 						/*
-						 * Kodowanie na PcLab to iso-8859-2 którego nie obsługuje Windows Phone 8.1
-						 * Dostępne kodowania w Win Phone to: UTF8 i Unicode; jednakże Aplikacje na Windows 8.1 obsługują te rozszerzenia
-						 * i z racji tego, że jest to aplikacja uniwersalna to zostało ustawione UTF8
-						 * przez co będzie widoczny problem z polskimi znakami w postaci znaków zapytania
+						 * Kodowanie na PcLab to iso-8859-2 którego nie obsługuje Windows Phone 8.1, ale obsługuje Windows 8.1
+						 * Dostępne kodowania w Win Phone to: UTF8 i Unicode;
 						 */
-
-						//url_string = await client.GetStringAsync(new Uri(url));
+#if WINDOWS_PHONE_APP
 						var response = await client.GetByteArrayAsync(new Uri(url));
 						//url_string = Encoding.GetEncoding("iso-8859-2").GetString(response, 0, response.Length - 1);
 						url_string = Encoding.UTF8.GetString(response, 0, response.Length - 1);
+#endif
+#if WINDOWS_APP
+						url_string = await client.GetStringAsync(new Uri(url));
+#endif
 					}
 
 					HtmlDocument htmlDocument = new HtmlDocument();
@@ -277,6 +290,94 @@ namespace InfNews
 				txtBlockTitlePcLab.Text = list_PcLab[index].Title;
 				txtBlockContentPcLab.Text = list_PcLab[index].Content;
 			}
+		}
+
+		// Komputer Świat
+		private async void ParsingKomputerSwiat(string url)
+		{
+			try
+			{
+				string url_string;
+				using (var client = new HttpClient())
+				{
+					url_string = await client.GetStringAsync(new Uri(url));
+				}
+
+				HtmlDocument htmlDocument = new HtmlDocument();
+				htmlDocument.LoadHtml(url_string);
+
+				HtmlNode node = htmlDocument.DocumentNode.Descendants("div").FirstOrDefault(o => o.GetAttributeValue("id", null) == "main_topic");
+				HtmlNodeCollection nodeCollection = node.ChildNodes;
+
+				foreach (HtmlNode itemNode in nodeCollection)
+				{
+					var imageAndTitle = itemNode.Descendants("img").FirstOrDefault(x => x.GetAttributeValue("src", null) != null);
+
+					if (imageAndTitle != null)
+					{
+						var link = url + itemNode.Attributes["href"].Value;
+						var title = imageAndTitle.Attributes["alt"].Value;
+						var image = url + imageAndTitle.Attributes["src"].Value;
+
+						list_KomputerSwiat.Add(new KomputerSwiatData(title, new BitmapImage(new Uri(image)), link));
+					}
+				}
+
+				listBoxKomputerSwiat.ItemsSource = list_KomputerSwiat;
+			}
+			catch (Exception e)
+			{
+				MessageDialog msgDialog = new MessageDialog(e.Message);
+				msgDialog.ShowAsync();
+			}
+		}
+
+		private async void ListBoxKomputerSwiat_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+		{
+			var item = sender as ListBox;
+			var index = item.SelectedIndex;
+			string url = list_KomputerSwiat[index].Link;
+
+			if (list_KomputerSwiat[index].Content == null)
+			{
+				try
+				{
+					string url_string;
+					using (var client = new HttpClient())
+					{
+						url_string = await client.GetStringAsync(new Uri(url));
+					}
+
+					HtmlDocument htmlDocument = new HtmlDocument();
+					htmlDocument.LoadHtml(url_string);
+
+					HtmlNode node = htmlDocument.DocumentNode.Descendants("div").FirstOrDefault(o => o.GetAttributeValue("id", null) == "onet-ad-flat-intext");
+					HtmlNodeCollection nodeCollection = node.ChildNodes;
+
+					string content = "";
+					foreach (HtmlNode itemNode in nodeCollection)
+					{
+						if (itemNode.Name == "p")
+						{
+							content += itemNode.InnerText + "\n ";
+						}
+					}
+					txtBlockTitleKomputerSwiat.Text = list_KomputerSwiat[index].Title;
+					list_KomputerSwiat[index].Content = content;
+					txtBlockContentKomputerSwiat.Text = content;
+				}
+				catch (Exception exception)
+				{
+					MessageDialog msg = new MessageDialog(exception.Message);
+					msg.ShowAsync();
+				}
+			}
+			else
+			{
+				txtBlockTitleKomputerSwiat.Text = list_KomputerSwiat[index].Title;
+				txtBlockContentKomputerSwiat.Text = list_KomputerSwiat[index].Content;
+			}
+
 		}
 	}
 }

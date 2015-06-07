@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-06-03T16:43:38.726</Modified>
+      <Modified>2015-06-06T12:05:24.728</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.exe">
       <PackagePath>InfNews.Windows.exe</PackagePath>
-      <Modified>2015-06-04T20:58:33.779</Modified>
+      <Modified>2015-06-07T10:29:16.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\HtmlAgilityPack.dll">
       <PackagePath>HtmlAgilityPack.dll</PackagePath>
@@ -62,15 +62,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-06-04T11:34:31.709</Modified>
+      <Modified>2015-06-07T10:29:14.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\InfNews.Windows.xr.xml">
       <PackagePath>InfNews.Windows.xr.xml</PackagePath>
-      <Modified>2015-06-03T16:30:21.086</Modified>
+      <Modified>2015-06-07T10:29:14.779</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Lukii\Documents\GitHub\InfNews\InfNews\InfNews.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-06-03T16:43:38.524</Modified>
+      <Modified>2015-06-06T12:05:23.626</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
